@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module prng_golden_module(
     input clk,rst,en,load_seed,
     input [7:0]seed_in,
