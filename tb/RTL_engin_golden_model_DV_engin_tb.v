@@ -33,11 +33,11 @@ module RTL_engin_golden_model_DV_engin_tb();
         begin
             @(posedge clk);
             if(data_out===data_out_golden) begin
-                $display("SUCCESS---DATA RTL=%x,DATA DV=%x",data_out,data_out_golden);
+                $display("SUCCESS---DATA RTL=%c,DATA DV=%c",data_out,data_out_golden);
                 succ_count=succ_count+1;
             end
             else begin
-                $display("ERROR---DATA RTL=%x,DATA DV=%x",data_out,data_out_golden);
+                $display("ERROR---DATA RTL=%c,DATA DV=%c",data_out,data_out_golden);
                 err_count=err_count+1;
             end
             totl_count=totl_count+1;
@@ -63,16 +63,30 @@ module RTL_engin_golden_model_DV_engin_tb();
         seed_in=0;
         @(posedge clk);
         rst=1;
-        
+        $display("-------------ENCODE of \"verilog\"-------------"); 
         @(posedge clk);
-        enc("L");validate();
-        enc("0");validate();
+        enc("v");validate();
+        enc("e");validate();
+        enc("r");validate();
+        enc("i");validate();
+        enc("l");validate();
+        enc("o");validate();
+        enc("g");validate();
+        
+        $display("-------------DECODE of \"ìP½Ä>Ä\"-------------"); 
+        
         
         @(posedge clk);
         repeat(2)
         load(8'hCD);
-        enc(8'hd6);validate();
-        enc(8'h05);validate();
+        enc(8'd236);validate();
+        enc(8'd80);validate();
+        enc(8'd24);validate();
+        enc(8'd189);validate();
+        enc(8'd196);validate();
+        enc(8'd62);validate();
+        enc(8'd196);validate();
+        
         
         
     end
