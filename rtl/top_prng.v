@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module top_prng(
     input clk,rst,en,load_seed,
     input [7:0]seed_in,
